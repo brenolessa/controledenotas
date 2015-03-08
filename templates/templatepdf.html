@@ -1,0 +1,33 @@
+<meta charset="UTF-8">
+
+{% extends 'base.html' %}
+{% block title %}<p style="font-size:20px" align="center">Relatório de Notas - SLQA</p>{% endblock %}
+
+{% block content %}
+     <table align="center">
+            <thead>
+              <tr>
+                <th align="left" style="font-size:15px">Disciplina</th>
+                <th align="left" style="font-size:15px">I unidade</th>
+                <th align="left" style="font-size:15px">II unidade</th>
+                <th align="left" style="font-size:15px">III unidade</th>
+                <th align="left" style="font-size:15px">Média</th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for disciplina in disciplinas %}
+
+            <tr>
+                <td align="left" style="font-size:15px">{{ disciplina.nome }}</td>
+                <td align="left" style="font-size:15px">{{ disciplina.nota1 }}</td>
+                <td align="left" style="font-size:15px">{{ disciplina.nota2 }}</td>
+                <td align="left" style="font-size:15px">{{ disciplina.nota3 }}</td>
+                <td align="left" style="font-size:15px">{{ disciplina.getMedia }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+          </table>
+    <br><br>
+{% endblock %}

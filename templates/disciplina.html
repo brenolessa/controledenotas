@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Disciplina{% endblock %}
+{% block content %}
+
+
+    <form action="" method="POST">{% csrf_token %}
+
+      {{ form.as_p }}
+
+
+      <label>Média:</label>
+      <input type="number" value="{{media|floatformat}}" readonly/><br>
+        <input type="submit" value="salvar"/>
+    </form>
+
+
+{% endblock %}

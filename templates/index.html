@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title %}Controle de Notas - SLQA{% endblock %}
+
+{% block content %}
+     <table>
+            <thead>
+              <tr>
+                <th>Disciplinas</th>
+                <th>I unidade</th>
+                <th>II unidade</th>
+                <th>III unidade</th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for disciplina in disciplinas %}
+
+            <tr>
+                <td>
+                    <a href="/editar/{{ disciplina.id }}/">
+                    {{ disciplina.nome }}
+                    </a>
+                </td>
+
+                <td>{{ disciplina.nota1 }}</td>
+                <td>{{ disciplina.nota2 }}</td>
+                <td>{{ disciplina.nota3 }}</td>
+
+
+                <td>
+                    <a href="/editar/{{ disciplina.id }}/">editar</a>
+                </td>
+                <td>
+                    <a href="/excluir/{{ disciplina.id }}/">excluir</a>
+                </td>
+                {% empty %}
+                <td>
+                  Não existem disciplinas cadastradas.
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+          </table>
+    <br><br>
+    <a href="/adicionar/"> Adicionar disciplina</a>
+    <a href="/gerarpdf/"> Gerar relatório em pdf</a>
+{% endblock %}
